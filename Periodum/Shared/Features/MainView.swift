@@ -9,12 +9,13 @@ import PeriodumCore
 struct MainView: View {
     let application: Application
     
-    @State var selectedElementID: Element.ID?
+    @State private var selectedElementID: Element.ID?
     
     var body: some View {
         ZStack(alignment: .topLeading) {
             PeriodicTableView(viewModel: application.periodicTableViewModel, selection: $selectedElementID)
                 .padding()
+                .padding(.bottom, 100)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {

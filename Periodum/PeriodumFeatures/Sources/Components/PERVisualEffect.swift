@@ -1,13 +1,9 @@
-//
-//  BlurView.swift
-//  Periodum (iOS)
-//
+//  PERVisualEffect.swift
 //  Created by Umur Gedik on 17.01.2022.
-//
 
 import SwiftUI
 
-struct VisualEffect: UIViewRepresentable {
+struct PERVisualEffect: UIViewRepresentable {
     let effect: UIVisualEffect
     
     func makeUIView(context: Context) -> UIVisualEffectView {

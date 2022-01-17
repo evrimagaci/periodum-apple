@@ -1,19 +1,22 @@
-//
-//  PeriodicTableElementView.swift
-//  Periodum (iOS)
-//
+//  PERElementCard.swift
 //  Created by Umur Gedik on 17.01.2022.
-//
 
 import SwiftUI
 import PeriodumCore
+import PlatformHelpers
 
-struct PeriodicTableElementView: View {
-    let element: PeriodicTableElementViewModel
-    @State private var isHovering = false
-    var inverse = false
+public struct PERElementCard: View {
+    public let element: PERElementCardModel
+    public let inverse: Bool
     
-    var body: some View {
+    public init(element: PERElementCardModel, inverse: Bool = false) {
+        self.element = element
+        self.inverse = inverse
+    }
+    
+    @State private var isHovering = false
+    
+    public var body: some View {
         VStack(alignment: .leading) {
             Text(element.symbol)
                 .font(.title)
@@ -45,7 +48,7 @@ struct PeriodicTableElementView: View {
                 .padding(.trailing, 6),
             alignment: .topTrailing
         )
-        .foregroundColor(inverse ? .black : color)
+        .foregroundColor(inverse ? .black : Color(hex: element.colorCode))
         .lineLimit(1)
         .background(
             LinearGradient(
@@ -57,41 +60,52 @@ struct PeriodicTableElementView: View {
         .cornerRadius(4)
     }
     
-    var color: Color {
-        element.color
-    }
-    
     @inline(__always)
-    var gradientColors: [Color] {
+    private var gradientColors: [Color] {
         [
-            inverse ? color : Color(red: 39/255, green: 47/255, blue: 63/255),
-            inverse ? color : Color(red: 29/255, green: 35/255, blue: 47/255)
+            inverse ? Color(hex: element.colorCode) : Color(red: 39/255, green: 47/255, blue: 63/255),
+            inverse ? Color(hex: element.colorCode) : Color(red: 29/255, green: 35/255, blue: 47/255)
         ]
     }
 }
 
 struct PeriodicTableElementView_Previews: PreviewProvider {
+    static let hydrogen = PERElementCardModel(
+        number: 1,
+        symbol: "H",
+        nameTr: "Hidrojen",
+        atomicMass: "1.008",
+        colorCode: ElementStyle.Kind.nonMetallic.colorCode,
+        row: 1,
+        col: 1
+    )
+    
+    static let helium = PERElementCardModel(
+        number: 2,
+        symbol: "He",
+        nameTr: "Helyum",
+        atomicMass: "4.0026022",
+        colorCode: ElementStyle.Kind.nobleGas.colorCode,
+        row: 1,
+        col: 18
+    )
+    
     static var previews: some View {
         Group {
-            
             HStack {
-                PeriodicTableElementView(element: PeriodicTableElementViewModel(from: previewElements[0]))
+                PERElementCard(element: hydrogen)
                     .frame(width: 85, height: 85)
                 
-                PeriodicTableElementView(
-                    element: PeriodicTableElementViewModel(from: previewElements[0]),
-                    inverse: true
-                ).frame(width: 85, height: 85)
+                PERElementCard(element: hydrogen, inverse: true)
+                    .frame(width: 85, height: 85)
             }
             
             HStack {
-                PeriodicTableElementView(element: PeriodicTableElementViewModel(from: previewElements[1]))
+                PERElementCard(element: helium)
                     .frame(width: 85, height: 85)
                 
-                PeriodicTableElementView(
-                    element: PeriodicTableElementViewModel(from: previewElements[1]),
-                    inverse: true
-                ).frame(width: 85, height: 85)
+                PERElementCard(element: helium, inverse: true)
+                    .frame(width: 85, height: 85)
             }
         }
         .padding()

@@ -1,14 +1,10 @@
-//
-//  LoadingContent.swift
-//  Periodum (iOS)
-//
+//  PERLoadingView.swift
 //  Created by Umur Gedik on 16.01.2022.
-//
 
 import SwiftUI
 import PeriodumCore
 
-struct LoadingContent<Content, ContentView: View>: View {
+struct PERLoadingView<Content, ContentView: View>: View {
     public let loadable: Loadable<Content>
     public let content: (Content) -> ContentView
     
@@ -36,7 +32,7 @@ struct LoadingContent_Previews: PreviewProvider {
     struct PreviewError: Error { }
     static var previews: some View {
         Group {
-            LoadingContent(Loadable<Void>.failure(PreviewError())) { }
+            PERLoadingView(Loadable<Void>.failure(PreviewError())) { }
         }
     }
 }

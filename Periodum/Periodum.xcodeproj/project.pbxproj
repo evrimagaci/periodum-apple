@@ -7,30 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A90A310B2795FAF000E38243 /* ElementInspector in Frameworks */ = {isa = PBXBuildFile; productRef = A90A310A2795FAF000E38243 /* ElementInspector */; };
+		A93D106227960B8800CBA3A1 /* PlatformHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = A93D106127960B8800CBA3A1 /* PlatformHelpers */; };
+		A93DA6942795E1060071BFD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DA6932795E1060071BFD5 /* AppDelegate.swift */; };
+		A93DA6972795E2410071BFD5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DA6962795E2410071BFD5 /* SceneDelegate.swift */; };
+		A93DA69A2795F27A0071BFD5 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = A93DA6992795F27A0071BFD5 /* Introspect */; };
 		A97F9A8B2794767500A46987 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F9A8A2794767500A46987 /* Tests_iOS.swift */; };
 		A97F9A8D2794767500A46987 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F9A8C2794767500A46987 /* Tests_iOSLaunchTests.swift */; };
-		A97F9A9A2794767500A46987 /* PeriodumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F9A722794767400A46987 /* PeriodumApp.swift */; };
 		A97F9A9E2794767500A46987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A97F9A742794767400A46987 /* Assets.xcassets */; };
 		A97F9AB127948A7400A46987 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F9AB027948A7400A46987 /* Application.swift */; };
 		A97F9AB427948A8700A46987 /* PeriodumCore in Frameworks */ = {isa = PBXBuildFile; productRef = A97F9AB327948A8700A46987 /* PeriodumCore */; };
 		A97F9AB627948AB800A46987 /* ApplicationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F9AB527948AB800A46987 /* ApplicationConfig.swift */; };
 		A97F9ABB27948B3300A46987 /* PeriodicTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F9ABA27948B3300A46987 /* PeriodicTableViewModel.swift */; };
 		A97F9ABD27948CE800A46987 /* PeriodicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F9ABC27948CE800A46987 /* PeriodicTableView.swift */; };
-		A97F9AC027948D2400A46987 /* LoadingContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F9ABF27948D2400A46987 /* LoadingContent.swift */; };
-		A9B3073C2795175300A981A4 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = A9B3073B2795175300A981A4 /* Introspect */; };
-		A9CBC9E42794C7E300878DFD /* PeriodicTableElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBC9E32794C7E300878DFD /* PeriodicTableElementView.swift */; };
-		A9CBC9E82794CDCF00878DFD /* Element+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBC9E72794CDCF00878DFD /* Element+Style.swift */; };
-		A9CBC9EA2794CF8C00878DFD /* Color+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBC9E92794CF8C00878DFD /* Color+hex.swift */; };
-		A9CBC9EC2794ECEF00878DFD /* PeriodicTableElementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBC9EB2794ECEF00878DFD /* PeriodicTableElementViewModel.swift */; };
 		A9CBC9EE2794F67600878DFD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBC9ED2794F67600878DFD /* MainView.swift */; };
 		A9CBC9F12794FB0F00878DFD /* ElementInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBC9F02794FB0F00878DFD /* ElementInspector.swift */; };
 		A9CBC9F62795043900878DFD /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBC9F52795043900878DFD /* Store.swift */; };
-		A9CBC9F82795094D00878DFD /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBC9F72795094D00878DFD /* BlurView.swift */; };
 		A9CBC9FA27950D4400878DFD /* ElementInspectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBC9F927950D4400878DFD /* ElementInspectorRow.swift */; };
 		A9D325FD2794BFE300EB493F /* IndexedElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D325FC2794BFE300EB493F /* IndexedElements.swift */; };
 		A9D326002794C3A700EB493F /* PeriodicTableGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D325FF2794C3A700EB493F /* PeriodicTableGridView.swift */; };
-		A9D326022794C42E00EB493F /* PreviewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D326012794C42E00EB493F /* PreviewContent.swift */; };
-		A9D326062794C5C300EB493F /* elements.json in Resources */ = {isa = PBXBuildFile; fileRef = A9D326042794C47000EB493F /* elements.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A97F9A722794767400A46987 /* PeriodumApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodumApp.swift; sourceTree = "<group>"; };
+		A93D106027960AF200CBA3A1 /* PlatformHelpers */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PlatformHelpers; path = ../PlatformHelpers; sourceTree = "<group>"; };
+		A93DA6932795E1060071BFD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A93DA6952795E1A20071BFD5 /* Periodum--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Periodum--iOS--Info.plist"; sourceTree = "<group>"; };
+		A93DA6962795E2410071BFD5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A93DA6982795EF970071BFD5 /* PeriodumFeatures */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PeriodumFeatures; sourceTree = "<group>"; };
 		A97F9A742794767400A46987 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A97F9A792794767400A46987 /* Periodum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Periodum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97F9A862794767500A46987 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,20 +55,12 @@
 		A97F9AB527948AB800A46987 /* ApplicationConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationConfig.swift; sourceTree = "<group>"; };
 		A97F9ABA27948B3300A46987 /* PeriodicTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableViewModel.swift; sourceTree = "<group>"; };
 		A97F9ABC27948CE800A46987 /* PeriodicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableView.swift; sourceTree = "<group>"; };
-		A97F9ABF27948D2400A46987 /* LoadingContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingContent.swift; sourceTree = "<group>"; };
-		A9CBC9E32794C7E300878DFD /* PeriodicTableElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableElementView.swift; sourceTree = "<group>"; };
-		A9CBC9E72794CDCF00878DFD /* Element+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Element+Style.swift"; sourceTree = "<group>"; };
-		A9CBC9E92794CF8C00878DFD /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
-		A9CBC9EB2794ECEF00878DFD /* PeriodicTableElementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableElementViewModel.swift; sourceTree = "<group>"; };
 		A9CBC9ED2794F67600878DFD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A9CBC9F02794FB0F00878DFD /* ElementInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementInspector.swift; sourceTree = "<group>"; };
 		A9CBC9F52795043900878DFD /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
-		A9CBC9F72795094D00878DFD /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		A9CBC9F927950D4400878DFD /* ElementInspectorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementInspectorRow.swift; sourceTree = "<group>"; };
 		A9D325FC2794BFE300EB493F /* IndexedElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexedElements.swift; sourceTree = "<group>"; };
 		A9D325FF2794C3A700EB493F /* PeriodicTableGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableGridView.swift; sourceTree = "<group>"; };
-		A9D326012794C42E00EB493F /* PreviewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContent.swift; sourceTree = "<group>"; };
-		A9D326042794C47000EB493F /* elements.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = elements.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +68,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A90A310B2795FAF000E38243 /* ElementInspector in Frameworks */,
 				A97F9AB427948A8700A46987 /* PeriodumCore in Frameworks */,
-				A9B3073C2795175300A981A4 /* Introspect in Frameworks */,
+				A93DA69A2795F27A0071BFD5 /* Introspect in Frameworks */,
+				A93D106227960B8800CBA3A1 /* PlatformHelpers in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +88,10 @@
 		A97F9A6C2794767400A46987 = {
 			isa = PBXGroup;
 			children = (
+				A93D106027960AF200CBA3A1 /* PlatformHelpers */,
 				A97F9AAF279476FE00A46987 /* PeriodumCore */,
+				A93DA6982795EF970071BFD5 /* PeriodumFeatures */,
+				A93DA6952795E1A20071BFD5 /* Periodum--iOS--Info.plist */,
 				A97F9AAE279476B700A46987 /* Periodum (iOS).entitlements */,
 				A97F9A712794767400A46987 /* Shared */,
 				A97F9A892794767500A46987 /* Tests iOS */,
@@ -107,15 +103,15 @@
 		A97F9A712794767400A46987 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				A9D326032794C45D00EB493F /* PreviewContent */,
 				A9D325FB2794BFD200EB493F /* Models */,
 				A97F9ABE27948D1100A46987 /* Components */,
 				A97F9AB827948B2100A46987 /* Features */,
-				A97F9A722794767400A46987 /* PeriodumApp.swift */,
 				A97F9A742794767400A46987 /* Assets.xcassets */,
 				A97F9AB027948A7400A46987 /* Application.swift */,
 				A97F9AB527948AB800A46987 /* ApplicationConfig.swift */,
 				A9CBC9F52795043900878DFD /* Store.swift */,
+				A93DA6932795E1060071BFD5 /* AppDelegate.swift */,
+				A93DA6962795E2410071BFD5 /* SceneDelegate.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -161,8 +157,6 @@
 				A97F9ABA27948B3300A46987 /* PeriodicTableViewModel.swift */,
 				A97F9ABC27948CE800A46987 /* PeriodicTableView.swift */,
 				A9D325FF2794C3A700EB493F /* PeriodicTableGridView.swift */,
-				A9CBC9E32794C7E300878DFD /* PeriodicTableElementView.swift */,
-				A9CBC9EB2794ECEF00878DFD /* PeriodicTableElementViewModel.swift */,
 			);
 			path = PeriodicTable;
 			sourceTree = "<group>";
@@ -170,9 +164,6 @@
 		A97F9ABE27948D1100A46987 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A97F9ABF27948D2400A46987 /* LoadingContent.swift */,
-				A9CBC9E92794CF8C00878DFD /* Color+hex.swift */,
-				A9CBC9F72795094D00878DFD /* BlurView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -190,18 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				A9D325FC2794BFE300EB493F /* IndexedElements.swift */,
-				A9CBC9E72794CDCF00878DFD /* Element+Style.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		A9D326032794C45D00EB493F /* PreviewContent */ = {
-			isa = PBXGroup;
-			children = (
-				A9D326012794C42E00EB493F /* PreviewContent.swift */,
-				A9D326042794C47000EB493F /* elements.json */,
-			);
-			path = PreviewContent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,7 +203,9 @@
 			name = "Periodum (iOS)";
 			packageProductDependencies = (
 				A97F9AB327948A8700A46987 /* PeriodumCore */,
-				A9B3073B2795175300A981A4 /* Introspect */,
+				A93DA6992795F27A0071BFD5 /* Introspect */,
+				A90A310A2795FAF000E38243 /* ElementInspector */,
+				A93D106127960B8800CBA3A1 /* PlatformHelpers */,
 			);
 			productName = "Periodum (iOS)";
 			productReference = A97F9A792794767400A46987 /* Periodum.app */;
@@ -292,7 +275,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9D326062794C5C300EB493F /* elements.json in Resources */,
 				A97F9A9E2794767500A46987 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,22 +293,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9D326022794C42E00EB493F /* PreviewContent.swift in Sources */,
 				A97F9AB627948AB800A46987 /* ApplicationConfig.swift in Sources */,
 				A97F9ABD27948CE800A46987 /* PeriodicTableView.swift in Sources */,
 				A97F9AB127948A7400A46987 /* Application.swift in Sources */,
-				A9CBC9E82794CDCF00878DFD /* Element+Style.swift in Sources */,
-				A9CBC9EA2794CF8C00878DFD /* Color+hex.swift in Sources */,
 				A97F9ABB27948B3300A46987 /* PeriodicTableViewModel.swift in Sources */,
-				A97F9AC027948D2400A46987 /* LoadingContent.swift in Sources */,
-				A9CBC9EC2794ECEF00878DFD /* PeriodicTableElementViewModel.swift in Sources */,
 				A9CBC9F62795043900878DFD /* Store.swift in Sources */,
 				A9CBC9F12794FB0F00878DFD /* ElementInspector.swift in Sources */,
-				A9CBC9E42794C7E300878DFD /* PeriodicTableElementView.swift in Sources */,
+				A93DA6942795E1060071BFD5 /* AppDelegate.swift in Sources */,
 				A9D325FD2794BFE300EB493F /* IndexedElements.swift in Sources */,
-				A9CBC9F82795094D00878DFD /* BlurView.swift in Sources */,
-				A97F9A9A2794767500A46987 /* PeriodumApp.swift in Sources */,
 				A9CBC9EE2794F67600878DFD /* MainView.swift in Sources */,
+				A93DA6972795E2410071BFD5 /* SceneDelegate.swift in Sources */,
 				A9D326002794C3A700EB493F /* PeriodicTableGridView.swift in Sources */,
 				A9CBC9FA27950D4400878DFD /* ElementInspectorRow.swift in Sources */,
 			);
@@ -471,11 +447,11 @@
 				CODE_SIGN_ENTITLEMENTS = "Periodum (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = Shared/PreviewContent/elements.json;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 8STHWE4QY7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = "Periodum--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -504,11 +480,11 @@
 				CODE_SIGN_ENTITLEMENTS = "Periodum (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = Shared/PreviewContent/elements.json;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 8STHWE4QY7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = "Periodum--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -615,14 +591,22 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A97F9AB327948A8700A46987 /* PeriodumCore */ = {
+		A90A310A2795FAF000E38243 /* ElementInspector */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = PeriodumCore;
+			productName = ElementInspector;
 		};
-		A9B3073B2795175300A981A4 /* Introspect */ = {
+		A93D106127960B8800CBA3A1 /* PlatformHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PlatformHelpers;
+		};
+		A93DA6992795F27A0071BFD5 /* Introspect */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A9B3073A2795175300A981A4 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = Introspect;
+		};
+		A97F9AB327948A8700A46987 /* PeriodumCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PeriodumCore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
