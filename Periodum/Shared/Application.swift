@@ -11,7 +11,8 @@ import PeriodumCore
 class Application {
     let apiClient: PeriodumAPI
     
-    let periodicTableViewModel: PeriodicTableViewModel
+    lazy var store = Store(api: apiClient)
+    lazy var periodicTableViewModel = PeriodicTableViewModel(store: store)
     
     init(config: ApplicationConfig) {
         let urlSessionConfig = URLSessionConfiguration.default
@@ -20,6 +21,5 @@ class Application {
         let urlSession = URLSession(configuration: urlSessionConfig)
         
         apiClient = PeriodumAPI(baseURL: config.apiBaseURL, requestHandler: urlSession)
-        periodicTableViewModel = PeriodicTableViewModel(api: apiClient)
     }
 }

@@ -6,12 +6,13 @@ import SwiftUI
 
 struct PeriodicTableView: View {
     @ObservedObject var viewModel: PeriodicTableViewModel
+    @Binding var selection: Element.ID?
+    
     var body: some View {
         LoadingContent(viewModel.elements) { elements in
-            List(elements) { element in
-                Text(element.nameTr)
-            }
-        }.onAppear { viewModel.viewDidAppear() }
+            PeriodicTableGridView(elements: elements, selection: $selection)
+        }
+        .onAppear { viewModel.viewDidAppear() }
     }
 }
 
@@ -20,7 +21,8 @@ import PeriodumCore
 struct PeriodicTable_Previews: PreviewProvider {
     static var previews: some View {
         PeriodicTableView(
-            viewModel: PeriodicTableViewModel(api: .noopMock)
+            viewModel: PeriodicTableViewModel(store: Store(api: .noopMock)),
+            selection: .constant(nil)
         )
     }
 }

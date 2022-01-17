@@ -7,24 +7,19 @@ import PeriodumCore
 
 @MainActor
 public class PeriodicTableViewModel: ObservableObject {
-    @Published public var elements: Loadable<[Element]> = .idle
+    @Published public var elements: Loadable<[PeriodicTableElementViewModel]> = .idle
     
-    private let api: PeriodumAPI
-    public init(api: PeriodumAPI) {
-        self.api = api
+    private let store: Store
+    public init(store: Store) {
+        self.store = store
+        
+        store.$elements.map { loadable in
+            loadable.mapElements(PeriodicTableElementViewModel.init(from:))
+        }
+        .assign(to: &$elements)
     }
     
     public func viewDidAppear() {
-        elements = .loading
-        Task {
-            do {
-                print("Will load elements from the API endpoint")
-                let items = try await api.fetch(.elements)
-                self.elements = .successful(items)
-                print("Elements did load:", items.count)
-            } catch {
-                elements = .failure(error)
-            }
-        }
+        Task { try await store.fetchElements() }
     }
 }

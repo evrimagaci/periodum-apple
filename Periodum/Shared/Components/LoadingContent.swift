@@ -20,7 +20,7 @@ struct LoadingContent<Content, ContentView: View>: View {
     var body: some View {
         switch loadable {
         case .idle:
-            EmptyView()
+            Color.clear
         case .loading:
             ProgressView()
         case .successful(let content):
