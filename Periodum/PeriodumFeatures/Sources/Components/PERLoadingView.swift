@@ -4,16 +4,16 @@
 import SwiftUI
 import PeriodumCore
 
-struct PERLoadingView<Content, ContentView: View>: View {
-    public let loadable: Loadable<Content>
-    public let content: (Content) -> ContentView
+public struct PERLoadingView<Content, ContentView: View>: View {
+    let loadable: Loadable<Content>
+    let content: (Content) -> ContentView
     
     public init(_ loadable: Loadable<Content>, @ViewBuilder content: @escaping (Content) -> ContentView) {
         self.loadable = loadable
         self.content = content
     }
     
-    var body: some View {
+    public var body: some View {
         switch loadable {
         case .idle:
             Color.clear

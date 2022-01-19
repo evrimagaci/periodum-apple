@@ -9,9 +9,10 @@ import Foundation
 import SwiftUI
 
 import PeriodumCore
+import ElementCard
 
 struct PeriodicTableGridView: View {
-    let elements: [PeriodicTableElementViewModel]
+    let elements: [PERElementCardModel]
     @Binding var selection: Element.ID?
     
     let numRows = 9
@@ -21,7 +22,7 @@ struct PeriodicTableGridView: View {
             let elementSize = self.elementSize(from: geom)
             ZStack(alignment: .topLeading) {
                 ForEach(elements) { element in
-                    PeriodicTableElementView(element: element)
+                    PERElementCard(element: element)
                         .padding([.trailing, .bottom], 5)
                         .frame(
                             width: elementSize.width,
@@ -60,7 +61,7 @@ struct PeriodicTableGridView: View {
 struct PeriodicTableGridView_Previews: PreviewProvider {
     static var previews: some View {
         PeriodicTableGridView(
-            elements: previewElements.map(PeriodicTableElementViewModel.init(from:)),
+            elements: previewElements.map(PERElementCardModel.init(from:)),
             selection: .constant(nil)
         )
         .padding()

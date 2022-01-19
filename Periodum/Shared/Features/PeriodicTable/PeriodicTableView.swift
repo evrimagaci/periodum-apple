@@ -3,13 +3,14 @@
 //  Created by Umur Gedik on 16.01.2022.
 
 import SwiftUI
+import Components
 
 struct PeriodicTableView: View {
     @ObservedObject var viewModel: PeriodicTableViewModel
     @Binding var selection: Element.ID?
     
     var body: some View {
-        LoadingContent(viewModel.elements) { elements in
+        PERLoadingView(viewModel.elements) { elements in
             PeriodicTableGridView(elements: elements, selection: $selection)
         }
         .onAppear { viewModel.viewDidAppear() }

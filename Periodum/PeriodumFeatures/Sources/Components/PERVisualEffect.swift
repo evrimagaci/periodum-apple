@@ -3,14 +3,17 @@
 
 import SwiftUI
 
-struct PERVisualEffect: UIViewRepresentable {
+public struct PERVisualEffect: UIViewRepresentable {
     let effect: UIVisualEffect
+    public init(effect: UIVisualEffect) {
+        self.effect = effect
+    }
     
-    func makeUIView(context: Context) -> UIVisualEffectView {
+    public func makeUIView(context: Context) -> UIVisualEffectView {
         UIVisualEffectView(effect: effect)
     }
     
-    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
+    public func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
         uiView.effect = effect
     }
 }

@@ -4,36 +4,44 @@
 
 import UIKit
 
-struct UIRect: Equatable {
-    private(set) var cgRect: CGRect
+public struct UIRect: Equatable {
+    public private(set) var cgRect: CGRect
     private let view: UIView
     private var isLeftToRight: Bool { view.isLeftToRight }
     
-    init(_ cgRect: CGRect, in view: UIView) {
+    public init(_ cgRect: CGRect, in view: UIView) {
         self.cgRect = cgRect
         self.view = view
     }
     
-    var leading: CGFloat {
+    public var leading: CGFloat {
         isLeftToRight ? cgRect.minX : cgRect.maxX
     }
     
-    var trailing: CGFloat {
+    public var trailing: CGFloat {
         isLeftToRight ? cgRect.maxX : cgRect.minX
     }
     
-    var minY: CGFloat { cgRect.minY }
-    var maxY: CGFloat { cgRect.maxY }
+    public var topLeading: CGPoint {
+        CGPoint(x: leading, y: minY)
+    }
     
-    var width: CGFloat { cgRect.width }
-    var height: CGFloat { cgRect.height }
+    public var topTrailing: CGPoint {
+        CGPoint(x: trailing, y: minY)
+    }
     
-    var size: CGSize {
+    public var minY: CGFloat { cgRect.minY }
+    public var maxY: CGFloat { cgRect.maxY }
+    
+    public var width: CGFloat { cgRect.width }
+    public var height: CGFloat { cgRect.height }
+    
+    public var size: CGSize {
         get { cgRect.size }
         set { cgRect.size = newValue }
     }
     
-    func divided(atDistance distance: CGFloat, from edge: NSDirectionalRectEdge) -> (UIRect, UIRect) {
+    public func divided(atDistance distance: CGFloat, from edge: NSDirectionalRectEdge) -> (UIRect, UIRect) {
         let (divided, remaining): (CGRect, CGRect)
         
         switch edge {
@@ -57,7 +65,7 @@ struct UIRect: Equatable {
         return (UIRect(divided, in: view), UIRect(remaining, in: view))
     }
     
-    func offsetBy(leading: CGFloat) -> UIRect {
+    public func offsetBy(leading: CGFloat) -> UIRect {
         var rect = cgRect
         if isLeftToRight {
             rect.origin.x += leading
@@ -69,11 +77,11 @@ struct UIRect: Equatable {
         return UIRect(rect, in: view)
     }
     
-    func insetBy(dx: CGFloat, dy: CGFloat) -> UIRect {
+    public func insetBy(dx: CGFloat, dy: CGFloat) -> UIRect {
         UIRect(cgRect.insetBy(dx: dx, dy: dy), in: view)
     }
     
-    func inset(by insets: NSDirectionalEdgeInsets) -> UIRect {
+    public func inset(by insets: NSDirectionalEdgeInsets) -> UIRect {
         let edgeInsets = UIEdgeInsets(
             top: insets.top,
             left: isLeftToRight ? insets.leading : insets.trailing,
@@ -90,22 +98,22 @@ struct UIRect: Equatable {
 }
 
 extension UIView {
-    var uiBounds: UIRect { UIRect(bounds, in: self) }
+    public var uiBounds: UIRect { UIRect(bounds, in: self) }
     var isLeftToRight: Bool { traitCollection.layoutDirection == .leftToRight }
     
-    func setTopLeading(to point: CGPoint, in container: UIRect) {
+    public func setTopLeading(to point: CGPoint, in container: UIRect) {
         if isLeftToRight {
-            frame.origin = CGPoint(x: container.leading + point.x, y: point.y)
+            frame.origin = CGPoint(x: container.leading + point.x, y: container.minY + point.y)
         } else {
-            frame.origin = CGPoint(x: container.leading - point.x - bounds.width, y: point.y)
+            frame.origin = CGPoint(x: container.leading - point.x - bounds.width, y: container.minY + point.y)
         }
     }
     
-    func setTopTrailing(to point: CGPoint, in container: UIRect) {
+    public func setTopTrailing(to point: CGPoint, in container: UIRect) {
         if isLeftToRight {
-            frame.origin = CGPoint(x: container.trailing - bounds.width, y: point.y)
+            frame.origin = CGPoint(x: container.trailing - bounds.width, y: container.minY + point.y)
         } else {
-            frame.origin = CGPoint(x: container.trailing + point.x, y: point.y)
+            frame.origin = CGPoint(x: container.trailing + point.x, y: container.minY + point.y)
         }
     }
 }

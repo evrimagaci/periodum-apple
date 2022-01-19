@@ -4,17 +4,18 @@
 
 import Foundation
 import PeriodumCore
+import ElementCard
 
 @MainActor
 public class PeriodicTableViewModel: ObservableObject {
-    @Published public var elements: Loadable<[PeriodicTableElementViewModel]> = .idle
+    @Published public var elements: Loadable<[PERElementCardModel]> = .idle
     
     private let store: Store
     public init(store: Store) {
         self.store = store
         
         store.$elements.map { loadable in
-            loadable.mapElements(PeriodicTableElementViewModel.init(from:))
+            loadable.mapElements(PERElementCardModel.init(from:))
         }
         .assign(to: &$elements)
     }

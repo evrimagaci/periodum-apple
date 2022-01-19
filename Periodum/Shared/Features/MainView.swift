@@ -3,7 +3,9 @@
 //  Created by Umur Gedik on 17.01.2022.
 
 import SwiftUI
+
 import PeriodumCore
+import ElementInspector
 
 @MainActor
 struct MainView: View {
@@ -27,8 +29,7 @@ struct MainView: View {
                 }
 
             if let element = selectedElement {
-                let isShownBinding = Binding<Bool>(get: { selectedElementID != nil }, set: { _ in selectedElementID = nil })
-                ElementInspector(element: element, isShown: isShownBinding)
+                PERElementInspector(element: element, onDismiss: { selectedElementID = nil })
                     .frame(width: 300)
                     .cornerRadius(12)
                     .shadow(radius: 20)

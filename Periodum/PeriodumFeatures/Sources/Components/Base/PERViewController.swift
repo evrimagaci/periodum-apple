@@ -17,9 +17,9 @@ open class PERViewController: UIViewController {
 }
 
 public extension UIViewController {
-    func add(_ childViewController: UIViewController) {
+    func add(_ childViewController: UIViewController, parentView: UIView? = nil) {
         addChild(childViewController)
-        view.addSubview(childViewController.view)
+        (parentView ?? view).addSubview(childViewController.view)
         childViewController.didMove(toParent: self)
     }
     
