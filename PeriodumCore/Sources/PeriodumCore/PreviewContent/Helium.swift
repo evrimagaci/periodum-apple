@@ -3,6 +3,7 @@
 
 import Foundation
 
+#if DEBUG
 fileprivate let heliumJSON = """
 {
     "number": 2,
@@ -222,3 +223,4 @@ fileprivate let heliumJSON = """
 """
 
 public let previewHeliumElement = try! JSONDecoder().decode(Element.self, from: heliumJSON.data(using: .utf8)!)
+#endif

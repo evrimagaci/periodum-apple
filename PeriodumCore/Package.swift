@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "PeriodumCore",
-    platforms: [.iOS(.v13)],
+    platforms: [.iOS(.v13), .macCatalyst(.v14)],
     products: [
         .library(
             name: "PeriodumCore",
@@ -16,10 +16,7 @@ let package = Package(
     targets: [
         .target(
             name: "PeriodumCore",
-            dependencies: [],
-            resources: [
-                .copy("PreviewContent/elements.json")
-            ]),
+            dependencies: []),
         .testTarget(
             name: "PeriodumCoreTests",
             dependencies: ["PeriodumCore"]),
