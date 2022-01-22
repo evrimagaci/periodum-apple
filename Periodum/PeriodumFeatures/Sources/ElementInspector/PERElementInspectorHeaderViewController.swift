@@ -10,9 +10,7 @@ import ElementCard
 
 class PERElementInspectorHeaderViewController: PERViewController {
     var element: Element {
-        didSet {
-            cardHost.rootView = PERElementCard(element: PERElementCardModel(from: element), inverse: true)
-        }
+        didSet { cardView.model = PERElementCardModel(from: element) }
     }
 
     let onDismiss: () -> Void
@@ -32,14 +30,14 @@ class PERElementInspectorHeaderViewController: PERViewController {
         $0.accessibilityLabel = "Close detailed information"
         $0.addTarget(self, action: #selector(didTapDismissButton(_:)), for: .touchUpInside)
     }
-    private lazy var cardHost = UIHostingController(rootView: PERElementCard(element: PERElementCardModel(from: element), inverse: true))
+    private lazy var cardView = PERElementCardView(model: PERElementCardModel(from: element), inverse: true)
     override func loadView() {
         view = UIView()
         view.frame.size.height = 85 + 16 + 16
         
-        add(cardHost)
-        cardHost.view.backgroundColor = .clear
-        cardHost.view.frame.size = CGSize(width: 85, height: 85)
+        view.addSubview(cardView)
+        cardView.backgroundColor = .clear
+        cardView.frame.size = CGSize(width: 85, height: 85)
         
         view.addSubview(dismissButton)
         dismissButton.sizeToFit()
@@ -49,7 +47,7 @@ class PERElementInspectorHeaderViewController: PERViewController {
         super.viewDidLayoutSubviews()
         
         let margins = view.uiBounds.insetBy(dx: 16, dy: 16)
-        cardHost.view.setTopLeading(to: .zero, in: margins)
+        cardView.setTopLeading(to: .zero, in: margins)
         dismissButton.setTopTrailing(to: .zero, in: margins)
     }
 }

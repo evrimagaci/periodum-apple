@@ -9,11 +9,13 @@ let package = Package(
     products: [
         .library(
             name: "ElementInspector",
-            targets: ["ElementInspector", "Components"]),
+            targets: ["ElementInspector"]),
         
         .library(
             name: "ElementCard",
-            targets: ["ElementCard"])
+            targets: ["ElementCard"]),
+        
+        .library(name: "PeriodicTable", targets: ["PeriodicTable"]),
     ],
     dependencies: [
         .package(name: "PeriodumCore", path: "../PeriodumCore"),
@@ -27,6 +29,10 @@ let package = Package(
         .target(
             name: "ElementCard",
             dependencies: ["Components", "PeriodumCore", "PlatformHelpers"]),
+        
+        .target(
+            name: "PeriodicTable",
+            dependencies: ["Components", "PeriodumCore", "PlatformHelpers", "ElementCard"]),
         
         .target(
             name: "Components",

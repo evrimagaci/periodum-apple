@@ -5,13 +5,16 @@
 import SwiftUI
 import Components
 
+import PeriodicTable
+
 struct PeriodicTableView: View {
     @ObservedObject var viewModel: PeriodicTableViewModel
     @Binding var selection: Element.ID?
     
     var body: some View {
         PERLoadingView(viewModel.elements) { elements in
-            PeriodicTableGridView(elements: elements, selection: $selection)
+            PeriodicTable.PERPeriodicTableView(elements: elements, selection: $selection)
+//            PeriodicTableGridView(elements: elements, selection: $selection)
         }
         .onAppear { viewModel.viewDidAppear() }
     }

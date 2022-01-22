@@ -26,8 +26,16 @@ public struct UIRect: Equatable {
         CGPoint(x: leading, y: minY)
     }
     
+    public var bottomLeading: CGPoint {
+        CGPoint(x: leading, y: maxY)
+    }
+    
     public var topTrailing: CGPoint {
         CGPoint(x: trailing, y: minY)
+    }
+    
+    public var bottomTrailing: CGPoint {
+        CGPoint(x: trailing, y: maxY)
     }
     
     public var minY: CGFloat { cgRect.minY }
@@ -99,6 +107,8 @@ public struct UIRect: Equatable {
 
 extension UIView {
     public var uiBounds: UIRect { UIRect(bounds, in: self) }
+    public var uiFrame: UIRect { UIRect(frame, in: self) }
+    
     var isLeftToRight: Bool { traitCollection.layoutDirection == .leftToRight }
     
     public func setTopLeading(to point: CGPoint, in container: UIRect) {
@@ -109,11 +119,27 @@ extension UIView {
         }
     }
     
+    public func setBottomLeading(to point: CGPoint, in container: UIRect) {
+        if isLeftToRight {
+            frame.origin = CGPoint(x: container.leading + point.x, y: container.maxY - point.y - bounds.height)
+        } else {
+            frame.origin = CGPoint(x: container.leading - point.x - bounds.width, y: container.maxY - point.y - bounds.height)
+        }
+    }
+    
     public func setTopTrailing(to point: CGPoint, in container: UIRect) {
         if isLeftToRight {
             frame.origin = CGPoint(x: container.trailing - bounds.width, y: container.minY + point.y)
         } else {
             frame.origin = CGPoint(x: container.trailing + point.x, y: container.minY + point.y)
+        }
+    }
+    
+    public func setBottomTrailing(to point: CGPoint, in container: UIRect) {
+        if isLeftToRight {
+            frame.origin = CGPoint(x: container.trailing - bounds.width, y: container.maxY - point.y - bounds.height)
+        } else {
+            frame.origin = CGPoint(x: container.trailing + point.x, y: container.maxY - point.y - bounds.height)
         }
     }
 }

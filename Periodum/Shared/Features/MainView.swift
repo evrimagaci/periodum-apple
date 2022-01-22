@@ -38,6 +38,8 @@ struct MainView: View {
                     .zIndex(2)
             }
         }
+        .background(Color(hex: 0x1a1f2a).edgesIgnoringSafeArea(.all))
+        .preferredColorScheme(.dark)
         .animation(.default, value: selectedElement)
     }
     

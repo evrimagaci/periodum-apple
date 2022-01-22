@@ -19,7 +19,7 @@ open class PERView: UIView {
     open func setupViewHierarchy() { }
 }
 
-public struct UIVIewPreview<View: UIView>: UIViewRepresentable {
+public struct UIViewPreview<View: UIView>: UIViewRepresentable {
     public let make: () -> View
     public init(make: @escaping () -> View) {
         self.make = make

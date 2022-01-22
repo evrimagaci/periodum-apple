@@ -13,8 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let application = Application(config: .default)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        
-        print(loadPreviewElements()[0])
+        print(previewHeliumElement)
         return true
     }
     

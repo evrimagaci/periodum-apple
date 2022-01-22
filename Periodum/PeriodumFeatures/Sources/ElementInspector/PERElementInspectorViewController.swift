@@ -38,6 +38,7 @@ public class PERElementInspectorViewController: PERViewController {
         ]
         
         listViewController.rows = rows
+        headerViewController.element = element
     }
     
     // MARK: - View Hierarchy
