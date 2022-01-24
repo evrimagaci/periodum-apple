@@ -129,7 +129,7 @@ extension UIView {
     
     public func setTopTrailing(to point: CGPoint, in container: UIRect) {
         if isLeftToRight {
-            frame.origin = CGPoint(x: container.trailing - bounds.width, y: container.minY + point.y)
+            frame.origin = CGPoint(x: container.trailing - bounds.width - point.x, y: container.minY + point.y)
         } else {
             frame.origin = CGPoint(x: container.trailing + point.x, y: container.minY + point.y)
         }
@@ -137,7 +137,7 @@ extension UIView {
     
     public func setBottomTrailing(to point: CGPoint, in container: UIRect) {
         if isLeftToRight {
-            frame.origin = CGPoint(x: container.trailing - bounds.width, y: container.maxY - point.y - bounds.height)
+            frame.origin = CGPoint(x: container.trailing - bounds.width - point.x, y: container.maxY - point.y - bounds.height)
         } else {
             frame.origin = CGPoint(x: container.trailing + point.x, y: container.maxY - point.y - bounds.height)
         }

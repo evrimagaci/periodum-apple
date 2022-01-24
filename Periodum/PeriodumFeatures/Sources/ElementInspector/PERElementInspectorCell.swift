@@ -21,6 +21,13 @@ class PERElementInspectorCell: PERCollectionViewCell {
         }
     }
     
+    var isChildCell: Bool = false {
+        didSet {
+            backgroundView?.isHidden = !isChildCell
+        }
+    }
+    
+    // MARK: - View Hierarchy
     private let titleLabel = UILabel().configure {
         $0.textColor = .secondaryLabel
     }
@@ -41,6 +48,11 @@ class PERElementInspectorCell: PERCollectionViewCell {
         contentView.addSubview(titleLabel)
         contentView.addSubview(valueLabel)
         contentView.addSubview(separator)
+        
+        backgroundView = UIView().configure {
+            $0.backgroundColor = .black.withAlphaComponent(0.25)
+            $0.isHidden = true
+        }
     }
     
     override func layoutSubviews() {

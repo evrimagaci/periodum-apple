@@ -12,14 +12,26 @@ class PERElementInspectorListViewController: PERViewController {
     }
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: makeCollectionViewLayout())
     private lazy var dataSource = setupDataSource()
-    fileprivate let cellRegistration = makeCellRegistration()
+    
+    fileprivate let regularCellRegistration = makeRegularCellRegistration()
+    fileprivate let groupCellRegistration = makeGroupCellRegistration()
     
     // MARK: - Lifecycle
     private func rowsDidChange() {
+        let currentSnapshot = dataSource.snapshot(for: .main)
+        let expandedRowTitles = currentSnapshot.items.filter(currentSnapshot.isExpanded(_:)).map(\.title)
+        
         var snapshot = Snapshot()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(rows, toSection: .main)
-        dataSource.apply(snapshot)
+        snapshot.append(rows)
+        
+        for row in rows where !row.children.isEmpty {
+            snapshot.append(row.children, to: row)
+            if expandedRowTitles.contains(row.title) {
+                snapshot.expand([row])
+            }
+        }
+        
+        dataSource.apply(snapshot, to: .main, animatingDifferences: true)
     }
     
     // MARK: - View Hieararchy
@@ -27,6 +39,8 @@ class PERElementInspectorListViewController: PERViewController {
         view = collectionView
         collectionView.backgroundColor = .clear
         collectionView.dataSource = dataSource
+        collectionView.delegate = self
+        collectionView.allowsSelection = true
     }
     
     
@@ -48,25 +62,66 @@ class PERElementInspectorListViewController: PERViewController {
 
 fileprivate extension PERElementInspectorListViewController {
     typealias DataSource = UICollectionViewDiffableDataSource<Section, PERElementInspectorRow>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, PERElementInspectorRow>
+    typealias Snapshot = NSDiffableDataSourceSectionSnapshot<PERElementInspectorRow>
     
     private func setupDataSource() -> DataSource {
-        DataSource(
-            collectionView: collectionView,
-            cellProvider: cellRegistration.cellProvider
-        )
+        let regularCell = regularCellRegistration
+        let groupCell = groupCellRegistration
+        
+        return DataSource(collectionView: collectionView) { collectionView, indexPath, inspectorRow in
+            if inspectorRow.children.isEmpty {
+                return collectionView.dequeueConfiguredReusableCell(using: regularCell, for: indexPath, item: inspectorRow)
+            } else {
+                let isExpanded = (collectionView.dataSource as? DataSource)?.snapshot(for: .main).isExpanded(inspectorRow) ?? false
+                let cell = collectionView.dequeueConfiguredReusableCell(using: groupCell, for: indexPath, item: inspectorRow)
+                cell.isCollapsed = !isExpanded
+                return cell
+            }
+        }
     }
 
 }
 
 fileprivate extension PERElementInspectorListViewController {
-    typealias Cell = PERElementInspectorCell
-    typealias CellRegistration = UICollectionView.CellRegistration<Cell, PERElementInspectorRow>
+    typealias RegularCell = PERElementInspectorCell
+    typealias RegularCellRegistration = UICollectionView.CellRegistration<RegularCell, PERElementInspectorRow>
     
-    static func makeCellRegistration() -> CellRegistration {
-        CellRegistration { cell, indexPath, item in
+    static func makeRegularCellRegistration() -> RegularCellRegistration {
+        RegularCellRegistration { cell, indexPath, item in
             cell.title = item.title
             cell.value = item.value
+            cell.isChildCell = item.isChild
+        }
+    }
+}
+
+fileprivate extension PERElementInspectorListViewController {
+    typealias GroupCell = PERElementInspectorGroupCell
+    typealias GroupCellRegistration = UICollectionView.CellRegistration<GroupCell, PERElementInspectorRow>
+    
+    static func makeGroupCellRegistration() -> GroupCellRegistration {
+        GroupCellRegistration { cell, indexPath, item in
+            cell.title = item.title
+        }
+    }
+}
+
+extension PERElementInspectorListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: false)
+        guard let row = dataSource.itemIdentifier(for: indexPath) else { return }
+        
+        if !row.children.isEmpty, let cell = collectionView.cellForItem(at: indexPath) as? GroupCell {
+            var snapshot: Snapshot = dataSource.snapshot(for: .main)
+            if snapshot.isExpanded(row) {
+                snapshot.collapse([row])
+                cell.isCollapsed = true
+            } else {
+                snapshot.expand([row])
+                cell.isCollapsed = false
+            }
+            
+            dataSource.apply(snapshot, to: .main)
         }
     }
 }

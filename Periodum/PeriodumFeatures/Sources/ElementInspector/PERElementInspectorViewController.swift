@@ -35,6 +35,16 @@ public class PERElementInspectorViewController: PERViewController {
             .regular("Allotrop İsimleri:", value: element.allotropeNames),
             .regular("Görünüm:", value: element.appearance),
             .regular("Kırılma İndisi:", value: element.refractiveIndex),
+            .group("Tanimlayici Numaralar:", children: [
+                .regular("CAS Numarasi:", value: element.casNumber),
+                .regular("CID Numarasi:", value: element.cidNumber),
+                .regular("DOT Numarasi:", value: element.dotNumber),
+                .regular("RTECS Numarasi:", value: element.rtecsNumber),
+                .regular("Mendeleev Numarasi:", value: element.mendeleevNumber.map(String.init) ?? "")
+            ]),
+            .group("Kutle", children: [
+                .regular("Atomik Kutle:", value: element.atomicMass)
+            ])
         ]
         
         listViewController.rows = rows
