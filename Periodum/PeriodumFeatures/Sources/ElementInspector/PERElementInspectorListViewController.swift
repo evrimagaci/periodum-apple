@@ -15,6 +15,7 @@ class PERElementInspectorListViewController: PERViewController {
     
     fileprivate let regularCellRegistration = makeRegularCellRegistration()
     fileprivate let groupCellRegistration = makeGroupCellRegistration()
+    fileprivate let measurementCellRegistration = makeMeasurementCellRegistration()
     
     // MARK: - Lifecycle
     private func rowsDidChange() {
@@ -67,10 +68,15 @@ fileprivate extension PERElementInspectorListViewController {
     private func setupDataSource() -> DataSource {
         let regularCell = regularCellRegistration
         let groupCell = groupCellRegistration
+        let measurementCell = measurementCellRegistration
         
         return DataSource(collectionView: collectionView) { collectionView, indexPath, inspectorRow in
             if inspectorRow.children.isEmpty {
-                return collectionView.dequeueConfiguredReusableCell(using: regularCell, for: indexPath, item: inspectorRow)
+                if inspectorRow.unit != nil {
+                    return collectionView.dequeueConfiguredReusableCell(using: measurementCell, for: indexPath, item: inspectorRow)
+                } else {
+                    return collectionView.dequeueConfiguredReusableCell(using: regularCell, for: indexPath, item: inspectorRow)
+                }
             } else {
                 let isExpanded = (collectionView.dataSource as? DataSource)?.snapshot(for: .main).isExpanded(inspectorRow) ?? false
                 let cell = collectionView.dequeueConfiguredReusableCell(using: groupCell, for: indexPath, item: inspectorRow)
@@ -82,6 +88,7 @@ fileprivate extension PERElementInspectorListViewController {
 
 }
 
+// MARK: - Regular Cell Registration
 fileprivate extension PERElementInspectorListViewController {
     typealias RegularCell = PERElementInspectorCell
     typealias RegularCellRegistration = UICollectionView.CellRegistration<RegularCell, PERElementInspectorRow>
@@ -95,6 +102,7 @@ fileprivate extension PERElementInspectorListViewController {
     }
 }
 
+// MARK: - Group Cell Registration
 fileprivate extension PERElementInspectorListViewController {
     typealias GroupCell = PERElementInspectorGroupCell
     typealias GroupCellRegistration = UICollectionView.CellRegistration<GroupCell, PERElementInspectorRow>
@@ -106,6 +114,24 @@ fileprivate extension PERElementInspectorListViewController {
     }
 }
 
+// MARK: - Measurement Cell Registration
+fileprivate extension PERElementInspectorListViewController {
+    typealias MeasurementCell = PERElementInspectorMeasurementCell
+    typealias MeasurementCellRegistration = UICollectionView.CellRegistration<MeasurementCell, PERElementInspectorRow>
+    
+    static func makeMeasurementCellRegistration() -> MeasurementCellRegistration {
+        MeasurementCellRegistration { cell, indexPath, item in
+            guard let unit = item.unit, !item.allUnits.isEmpty else {
+                fatalError("Invalid inspector row")
+            }
+            
+            cell.title = item.title
+            cell.setValue(item.value, unit: unit, allUnits: item.allUnits)
+        }
+    }
+}
+
+// MARK: - UICollectionViewDelegate
 extension PERElementInspectorListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)

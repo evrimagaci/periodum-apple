@@ -43,7 +43,7 @@ public class PERElementInspectorViewController: PERViewController {
                 .regular("Mendeleev Numarasi:", value: element.mendeleevNumber.map(String.init) ?? "")
             ]),
             .group("Kutle", children: [
-                .regular("Atomik Kutle:", value: element.atomicMass)
+                .measurement("Atomik Kutle:", value: element.atomicMass, unit: UnitMass.atomicMassUnit)
             ])
         ]
         

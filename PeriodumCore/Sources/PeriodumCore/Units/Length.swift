@@ -3,7 +3,7 @@
 
 import Foundation
 
-public final class ElementLength: Dimension {
+public final class ElementLength: Dimension, ElementDimension {
     public static let pm = ElementLength(symbol: "pm", converter: UnitConverterLinear(coefficient: 1))
     public static let baseUnit = pm
     
@@ -30,5 +30,5 @@ public final class ElementLength: Dimension {
     public static let ly     = ElementLength(symbol: "ly",     converter: UnitConverterLinear(coefficient: 1.0570008340247E-28))
     public static let Planck = ElementLength(symbol: "Planck", converter: UnitConverterLinear(coefficient: 6.1879273537329E+22))
     
-    public static let allUnits: [ElementLength] = [pm, A, am, fm, µm, nm, mm, cm, dm, dam, hm, km, Mm, Gm, Tm, Pm, Em, `in`, yd, mi, ft, ly, Planck]
+    public static let elementUnits: [ElementLength] = [pm, A, am, fm, µm, nm, mm, cm, dm, dam, hm, km, Mm, Gm, Tm, Pm, Em, `in`, yd, mi, ft, ly, Planck]
 }

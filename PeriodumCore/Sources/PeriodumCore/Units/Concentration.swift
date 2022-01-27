@@ -3,12 +3,12 @@
 
 import Foundation
 
-public extension UnitConcentrationMass {
-    static let kilogramsPerCubicMeter = gramsPerLiter
-    static let kilogramsPerCubicCentimeter = UnitConcentrationMass(symbol: "kg/cm3", converter: UnitConverterLinear(coefficient: 1000000))
-    static let gramsPerCubicCentimeter = UnitConcentrationMass(symbol: "g/cm3", converter: UnitConverterLinear(coefficient: 1000))
+extension UnitConcentrationMass: ElementDimension {
+    public static let kilogramsPerCubicMeter = gramsPerLiter
+    public static let kilogramsPerCubicCentimeter = UnitConcentrationMass(symbol: "kg/cm3", converter: UnitConverterLinear(coefficient: 1000000))
+    public static let gramsPerCubicCentimeter = UnitConcentrationMass(symbol: "g/cm3", converter: UnitConverterLinear(coefficient: 1000))
     
-    static let elementUnits: [UnitConcentrationMass] = [
+    public static let elementUnits: [UnitConcentrationMass] = [
         kilogramsPerCubicMeter,
         kilogramsPerCubicCentimeter,
         gramsPerCubicCentimeter

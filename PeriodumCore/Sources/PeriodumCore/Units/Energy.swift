@@ -3,7 +3,7 @@
 
 import Foundation
 
-public class UnitEnergyPerMole: Dimension {
+public class UnitEnergyPerMole: Dimension, ElementDimension {
     public static let baseUnit = kilojoulePerMole
     
     public static let kilojoulePerMole = UnitEnergyPerMole(symbol: "kJ/mol", converter: UnitConverterLinear(coefficient: 1))

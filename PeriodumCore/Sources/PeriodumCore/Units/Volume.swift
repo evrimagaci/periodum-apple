@@ -3,8 +3,8 @@
 
 import Foundation
 
-public extension UnitVolume {
-    static let elementUnits: [UnitVolume] = [
+extension UnitVolume: ElementDimension {
+    public static let elementUnits: [UnitVolume] = [
         cubicCentimeters,
         liters,
         cubicMillimeters
