@@ -4,7 +4,8 @@
 import Foundation
 
 extension UnitPressure: ElementDimension {
-    public static let pascals                      = newtonsPerMetersSquared
+//    public static let pascals                      = newtonsPerMetersSquared
+    public static let pascals                      = UnitPressure(symbol: "Pa", converter: newtonsPerMetersSquared.converter)
     public static let atmospheric                  = UnitPressure(symbol: "atm",  converter: UnitConverterLinear(coefficient: 101325))
     public static let attopascals                  = UnitPressure(symbol: "aPa",  converter: UnitConverterLinear(coefficient: 9.999999999e-19))
     public static let femtopascals                 = UnitPressure(symbol: "fPa",  converter: UnitConverterLinear(coefficient: 1e-15))
@@ -22,7 +23,7 @@ extension UnitPressure: ElementDimension {
     public static let kilopoundsForcePerSquareInch = UnitPressure(symbol: "ksi",  converter: UnitConverterLinear(coefficient: 6.895e+6))
     
     public static let elementUnits: [UnitPressure] = [
-        pascals, kilopascals, bars, poundsForcePerSquareInch, kilopoundsForcePerSquareInch, atmospheric,
+        megapascals, pascals, kilopascals, bars, poundsForcePerSquareInch, kilopoundsForcePerSquareInch, atmospheric,
         attopascals, femtopascals, picopascals, nanopascals, micropascals, millipascals,
         centipascals, decipascals, dekapascals, hectopascals, gigapascals, terapascals,
         petapascals, exapascals

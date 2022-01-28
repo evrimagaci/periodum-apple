@@ -56,7 +56,6 @@ public class PERElementCardView: PERView {
         super.didMoveToWindow()
         guard let scaleFactor = window?.screen.scale else { return }
         
-        print("Scale Factor:", scaleFactor)
         atomNumberLabel.contentsScale = scaleFactor
         symbolLabel.contentsScale = scaleFactor
         nameLabel.contentsScale = scaleFactor

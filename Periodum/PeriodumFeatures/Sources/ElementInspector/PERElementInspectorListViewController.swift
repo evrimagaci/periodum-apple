@@ -127,6 +127,7 @@ fileprivate extension PERElementInspectorListViewController {
             
             cell.title = item.title
             cell.setValue(item.value, unit: unit, allUnits: item.allUnits)
+            cell.isChildCell = item.isChild
         }
     }
 }

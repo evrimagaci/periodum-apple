@@ -67,6 +67,11 @@ public struct Element: Codable, Identifiable, Equatable {
     public let shells5: Int?
     public let shells6: Int?
     public let shells7: Int?
+    
+    public var shells: [Int?] {
+        [shells0, shells1, shells2, shells3, shells4, shells5, shells6, shells7]
+    }
+    
     public let ionizationEnergies0, ionizationEnergies1, ionizationEnergies2, ionizationEnergies3: String
     public let ionizationEnergies4, ionizationEnergies5, ionizationEnergies6, ionizationEnergies7: String
     public let ionizationEnergies8, ionizationEnergies9, ionizationEnergies10, ionizationEnergies11: String
@@ -75,6 +80,42 @@ public struct Element: Codable, Identifiable, Equatable {
     public let ionizationEnergies20, ionizationEnergies21, ionizationEnergies22, ionizationEnergies23: String
     public let ionizationEnergies24, ionizationEnergies25, ionizationEnergies26, ionizationEnergies27: String
     public let ionizationEnergies28, ionizationEnergies29: String
+    
+    public var ionizationEnergies: [String] {
+        [
+            ionizationEnergies0,
+            ionizationEnergies1,
+            ionizationEnergies2,
+            ionizationEnergies3,
+            ionizationEnergies4,
+            ionizationEnergies5,
+            ionizationEnergies6,
+            ionizationEnergies7,
+            ionizationEnergies8,
+            ionizationEnergies9,
+            ionizationEnergies10,
+            ionizationEnergies11,
+            ionizationEnergies12,
+            ionizationEnergies13,
+            ionizationEnergies14,
+            ionizationEnergies15,
+            ionizationEnergies16,
+            ionizationEnergies17,
+            ionizationEnergies18,
+            ionizationEnergies19,
+            ionizationEnergies20,
+            ionizationEnergies21,
+            ionizationEnergies22,
+            ionizationEnergies23,
+            ionizationEnergies24,
+            ionizationEnergies25,
+            ionizationEnergies26,
+            ionizationEnergies27,
+            ionizationEnergies28,
+            ionizationEnergies29,
+        ]
+    }
+    
     public let wikipedia: String
     public let eaContentID: Int?
 

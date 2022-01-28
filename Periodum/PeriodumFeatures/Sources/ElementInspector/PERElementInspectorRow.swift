@@ -19,7 +19,9 @@ struct PERElementInspectorRow: Hashable {
     }
     
     static func group(_ title: String, children: [Self]) -> Self {
-        let children = children.map { child -> Self in
+        let children = children.compactMap { child -> Self? in
+            if child.value.isEmpty { return nil }
+            
             var child = child
             child.isChild = true
             return child

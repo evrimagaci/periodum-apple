@@ -34,20 +34,41 @@ class PERElementInspectorMeasurementCell: PERCollectionViewCell {
     }
     
     private let measurementView = PERMeasurementView()
+    private let separator = UIView().configure {
+        $0.backgroundColor = .separator
+    }
     
     override func setupViewHierarchy() {
         contentView.addSubview(titleLabel)
         contentView.addSubview(measurementView)
+        contentView.addSubview(separator)
+        measurementView.onUnitChange = { [weak self] in
+            self?.setNeedsLayout()
+        }
+        
+        backgroundView = UIView().configure {
+            $0.backgroundColor = .black.withAlphaComponent(0.25)
+            $0.isHidden = true
+        }
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let margins = bounds.insetBy(dx: 16, dy: 0)
+        let margins = bounds.insetBy(dx: 16, dy: 8)
         titleLabel.frame.size.height = margins.height
         titleLabel.frame.origin = margins.origin
         
+        backgroundView?.frame = bounds
+        
+        measurementView.sizeToFit()
         measurementView.frame.size.height = margins.height
         measurementView.frame.origin.x = margins.maxX - measurementView.frame.size.width
+        measurementView.frame.origin.y = margins.midY - measurementView.bounds.midY
+        
+        separator.frame = CGRect(
+            origin: CGPoint(x: 0, y: bounds.maxY - 0.5),
+            size: CGSize(width: bounds.width, height: 1)
+        )
     }
 }
