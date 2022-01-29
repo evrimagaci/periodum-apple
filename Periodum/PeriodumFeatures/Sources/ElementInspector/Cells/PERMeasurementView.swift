@@ -51,6 +51,10 @@ class PERMeasurementView: PERControl {
         
         valueLabel.text = measurementFormatter.numberFormatter.string(for: measurement.value)
         unitLabel.text = configuration.unit.symbol
+        
+        #if !targetEnvironment(macCatalyst)
+        unitLabel.textColor = configuration.allUnits.count > 1 ? .systemBlue : .secondaryLabelColor
+        #endif
     }
     
     // MARK: - Units
@@ -95,6 +99,10 @@ class PERMeasurementView: PERControl {
     }
     
     override func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        guard let configuration = configuration, configuration.allUnits.count > 1 else {
+            return nil
+        }
+
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { [weak self] _ in
             return self?.buildUnitsMenu()
         }
@@ -133,6 +141,11 @@ class PERMeasurementView: PERControl {
     }
     
     @objc private func handleHoverGesture(_ gestureRecognizer: UIHoverGestureRecognizer) {
+        guard let config = configuration, config.allUnits.count > 1 else {
+            highlight.isHidden = true
+            return
+        }
+        
         switch gestureRecognizer.state {
         case .began, .changed:
             highlight.isHidden = false
