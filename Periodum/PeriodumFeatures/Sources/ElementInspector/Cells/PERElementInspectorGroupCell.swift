@@ -33,7 +33,11 @@ class PERElementInspectorGroupCell: PERCollectionViewCell {
     
     let separator = UIView().configure { $0.backgroundColor = .separator }
     let disclosureView = UIImageView(image: UIImage(systemName: "chevron.right")!).configure {
+        #if targetEnvironment(macCatalyst)
+        $0.tintColor = .secondaryLabel
+        #else
         $0.tintColor = .systemBlue
+        #endif
         $0.contentMode = .center
         $0.sizeToFit()
     }
