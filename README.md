@@ -1,3 +1,7 @@
+# Archived
+This repository has been moved to @evrimagaci organisation.
+**Please use https://github.com/evrimagaci/periodum-apple**
+
 # Periodum: An Interactive Periodic Table Project
 This project started as a Turkish periodic table; however, we are now at a point where we want to go international by converting the project to English. We have a path forward and we are seeking programmers that are willing to take on the language expansion process. [Contribute to the project](https://github.com/evrimagaci/periodum-apple/blob/main/CONTRIBUTING.md) if you're interested - and [feel free to ask any questions](https://github.com/evrimagaci/periodum-apple/discussions) if you cannot figure out anything (because of language or for any other reason)!
 
