@@ -31,6 +31,9 @@ class PERElementInspectorMeasurementCell: PERCollectionViewCell {
     // MARK: - View Hierarchy
     private let titleLabel = UILabel().configure {
         $0.textColor = .secondaryLabel
+        #if !targetEnvironment(macCatalyst)
+        $0.font = .preferredFont(forTextStyle: .subheadline, compatibleWith: nil)
+        #endif
     }
     
     private let measurementView = PERMeasurementView()

@@ -29,6 +29,9 @@ class PERElementInspectorGroupCell: PERCollectionViewCell {
     // MARK: - View Hierarchy
     let titleLabel = UILabel().configure {
         $0.textColor = .secondaryLabel
+        #if !targetEnvironment(macCatalyst)
+        $0.font = .preferredFont(forTextStyle: .subheadline, compatibleWith: nil)
+        #endif
     }
     
     let separator = UIView().configure { $0.backgroundColor = .separator }

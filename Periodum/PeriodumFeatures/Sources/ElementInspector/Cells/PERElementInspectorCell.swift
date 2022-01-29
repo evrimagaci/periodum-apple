@@ -30,6 +30,9 @@ class PERElementInspectorCell: PERCollectionViewCell {
     // MARK: - View Hierarchy
     private let titleLabel = UILabel().configure {
         $0.textColor = .secondaryLabel
+        #if !targetEnvironment(macCatalyst)
+        $0.font = .preferredFont(forTextStyle: .subheadline, compatibleWith: nil)
+        #endif
     }
     
     private let valueLabel = UILabel().configure {
@@ -37,6 +40,10 @@ class PERElementInspectorCell: PERCollectionViewCell {
         $0.numberOfLines = 0
         $0.lineBreakMode = .byWordWrapping
         $0.textAlignment = .right
+        
+        #if !targetEnvironment(macCatalyst)
+        $0.font = .preferredFont(forTextStyle: .subheadline, compatibleWith: nil)
+        #endif
     }
     
     private let separator = UIView().configure {

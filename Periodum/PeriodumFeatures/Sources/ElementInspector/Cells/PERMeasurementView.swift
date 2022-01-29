@@ -101,8 +101,19 @@ class PERMeasurementView: PERControl {
     }
     
     // MARK: - View Hieararchy
-    let valueLabel = UILabel()
-    let unitLabel = UILabel()
+    let valueLabel = UILabel().configure {
+        #if !targetEnvironment(macCatalyst)
+        $0.font = .preferredFont(forTextStyle: .subheadline, compatibleWith: nil)
+        #endif
+    }
+    
+    let unitLabel = UILabel().configure {
+        #if !targetEnvironment(macCatalyst)
+        $0.font = .preferredFont(forTextStyle: .subheadline, compatibleWith: nil)
+        $0.textColor = .systemBlue
+        #endif
+    }
+    
     lazy var highlight = UIView().configure {
         $0.backgroundColor = .quaternarySystemFill
         $0.layer.cornerCurve = .continuous
@@ -114,11 +125,6 @@ class PERMeasurementView: PERControl {
         addSubview(highlight)
         addSubview(valueLabel)
         addSubview(unitLabel)
-        
-        #if targetEnvironment(macCatalyst)
-        #else
-        unitLabel.textColor = .systemBlue
-        #endif
         
         let hoverGesture = UIHoverGestureRecognizer(target: self, action: #selector(handleHoverGesture(_:)))
         addGestureRecognizer(hoverGesture)
