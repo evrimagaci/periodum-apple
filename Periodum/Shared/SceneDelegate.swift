@@ -21,12 +21,14 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
             let appDelegate = UIApplication.shared.delegate as? AppDelegate
         else { return }
         
-        #if targetEnvironment(macCatalyst)
-        windowScene.titlebar?.separatorStyle = .line
-        windowScene.titlebar?.titleVisibility = .hidden
-        windowScene.titlebar?.toolbarStyle = .unified
-        windowScene.titlebar?.toolbar = NSToolbar()
-        windowScene.titlebar?.toolbar?.delegate = self
+        #if false
+            #if targetEnvironment(macCatalyst)
+            windowScene.titlebar?.separatorStyle = .line
+            windowScene.titlebar?.titleVisibility = .hidden
+            windowScene.titlebar?.toolbarStyle = .unified
+            windowScene.titlebar?.toolbar = NSToolbar()
+            windowScene.titlebar?.toolbar?.delegate = self
+            #endif
         #endif
         
         let mainView = MainView(application: appDelegate.application)
