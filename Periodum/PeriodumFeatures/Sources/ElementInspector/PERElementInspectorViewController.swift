@@ -35,7 +35,7 @@ public class PERElementInspectorViewController: PERViewController {
             .regular("Allotrop İsimleri:", value: element.allotropeNames),
             .regular("Görünüm:", value: element.appearance),
             .regular("Kırılma İndisi:", value: element.refractiveIndex),
-            .group("Tanimlayici Numaralar:", children: [
+            .group("Tanimlayici Numaralar", children: [
                 .regular("CAS Numarasi:", value: element.casNumber),
                 .regular("CID Numarasi:", value: element.cidNumber),
                 .regular("DOT Numarasi:", value: element.dotNumber),
@@ -131,7 +131,7 @@ public class PERElementInspectorViewController: PERViewController {
                 .measurement("Ekstensiyonel:", value: element.speedOfSoundExtensional, unit: UnitSpeed.metersPerSecond),
                 .measurement("Akiskan Icinde:", value: element.speedOfSoundFluid, unit: UnitSpeed.metersPerSecond)
             ]),
-            .group("Elektriksel Direnc:", children: [
+            .group("Elektriksel Direnc", children: [
                 .measurement("80 K", value: element.electricalResistivity80K, unit: ResistivityUnit.baseUnit()),
                 .measurement("273 K", value: element.electricalResistivity273K, unit: ResistivityUnit.baseUnit()),
                 .measurement("293 K", value: element.electricalResistivity293K, unit: ResistivityUnit.baseUnit()),
