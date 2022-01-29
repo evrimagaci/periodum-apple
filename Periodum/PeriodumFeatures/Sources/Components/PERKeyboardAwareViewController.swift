@@ -40,9 +40,6 @@ class PERKeyboardAwareViewController<Child>: PERViewController where Child: UIVi
     @objc private func keyboardWillChangeFrame(_ notification: Notification) {
         guard let animation = KeyboardAnimation(from: notification) else { return }
         
-        print("Keyboard.beginFrame:", animation.beginFrame)
-        print("Keyboard.endFrame:", animation.endFrame)
-        
         let extraHeight = view.bounds.maxY - animation.endFrame.minY - view.safeAreaInsets.bottom
         child.additionalSafeAreaInsets.bottom = extraHeight
         let options = UIView.AnimationOptions(rawValue: UInt(animation.curve.rawValue) << 16)

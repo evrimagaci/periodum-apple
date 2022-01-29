@@ -22,8 +22,6 @@
 		A97F9ABD27948CE800A46987 /* PeriodicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F9ABC27948CE800A46987 /* PeriodicTableView.swift */; };
 		A9CBC9EE2794F67600878DFD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBC9ED2794F67600878DFD /* MainView.swift */; };
 		A9CBC9F62795043900878DFD /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBC9F52795043900878DFD /* Store.swift */; };
-		A9D325FD2794BFE300EB493F /* IndexedElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D325FC2794BFE300EB493F /* IndexedElements.swift */; };
-		A9D326002794C3A700EB493F /* PeriodicTableGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D325FF2794C3A700EB493F /* PeriodicTableGridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +53,6 @@
 		A97F9ABC27948CE800A46987 /* PeriodicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableView.swift; sourceTree = "<group>"; };
 		A9CBC9ED2794F67600878DFD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A9CBC9F52795043900878DFD /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
-		A9D325FC2794BFE300EB493F /* IndexedElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexedElements.swift; sourceTree = "<group>"; };
-		A9D325FF2794C3A700EB493F /* PeriodicTableGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +95,6 @@
 		A97F9A712794767400A46987 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				A9D325FB2794BFD200EB493F /* Models */,
 				A97F9AB827948B2100A46987 /* Features */,
 				A97F9A742794767400A46987 /* Assets.xcassets */,
 				A97F9AB027948A7400A46987 /* Application.swift */,
@@ -150,17 +145,8 @@
 			children = (
 				A97F9ABA27948B3300A46987 /* PeriodicTableViewModel.swift */,
 				A97F9ABC27948CE800A46987 /* PeriodicTableView.swift */,
-				A9D325FF2794C3A700EB493F /* PeriodicTableGridView.swift */,
 			);
 			path = PeriodicTable;
-			sourceTree = "<group>";
-		};
-		A9D325FB2794BFD200EB493F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				A9D325FC2794BFE300EB493F /* IndexedElements.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,10 +263,8 @@
 				A97F9ABB27948B3300A46987 /* PeriodicTableViewModel.swift in Sources */,
 				A9CBC9F62795043900878DFD /* Store.swift in Sources */,
 				A93DA6942795E1060071BFD5 /* AppDelegate.swift in Sources */,
-				A9D325FD2794BFE300EB493F /* IndexedElements.swift in Sources */,
 				A9CBC9EE2794F67600878DFD /* MainView.swift in Sources */,
 				A93DA6972795E2410071BFD5 /* SceneDelegate.swift in Sources */,
-				A9D326002794C3A700EB493F /* PeriodicTableGridView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

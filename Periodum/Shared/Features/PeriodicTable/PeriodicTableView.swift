@@ -13,8 +13,7 @@ struct PeriodicTableView: View {
     
     var body: some View {
         PERLoadingView(viewModel.elements) { elements in
-            PeriodicTable.PERPeriodicTableView(elements: elements, selection: $selection)
-//            PeriodicTableGridView(elements: elements, selection: $selection)
+            PERPeriodicTableView(elements: elements, selection: $selection)
         }
         .onAppear { viewModel.viewDidAppear() }
     }

@@ -13,7 +13,6 @@ fileprivate let measurementFormatter = MeasurementFormatter().configure { format
     numberFormatter.numberStyle = .scientific
     numberFormatter.maximumFractionDigits = 5
     formatter.numberFormatter = numberFormatter
-//    formatter.numberFormatter.numberStyle = .scientific
 }
 
 class PERMeasurementView: PERControl {

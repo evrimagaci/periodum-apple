@@ -25,7 +25,6 @@ public extension Endpoint {
         urlComponents.queryItems = queryParamaters.isEmpty ? nil : queryParamaters
         
         var request = URLRequest(url: urlComponents.url!)
-        print("REQUEST URL:", request.url!)
         request.httpMethod = method.rawValue.uppercased()
         request.httpBody = body
         return request

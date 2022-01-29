@@ -14,7 +14,6 @@ public class PeriodumAPI {
     public func fetch<E: Endpoint, Response: Decodable>(_ endpoint: E) async throws -> Response where E.Response == Response {
         let (data, _) = try await requestHandler.run(request: endpoint.urlRequest(relativeTo: baseURL))
         
-        print("Data fetched:", data.count, "bytes")
         return try JSONDecoder().decode(Response.self, from: data)
     }
     
