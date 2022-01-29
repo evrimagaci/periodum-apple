@@ -10,4 +10,10 @@ This repository is for Apple platform clients (iPad and macOS at the moment). If
 - **Project Needs & Roadmap:** https://github.com/evrimagaci/periodum-apple/projects/1
 - **Design File:** https://dar.vin/4Ksrj _You can access the design file using [Sketch](https://www.sketch.com/) or [Adobe XD](https://www.adobe.com/products/xd.html)._
 
+## Contributing 
+- Fork the repository
+- Create a feature branch from `develop` branch called `feature/<my feature name>` on your fork from
+- Work on your feature branch
+- When it is ready, create a pull request to `develop`
+
 <img width="1309" alt="Screen Shot 2022-01-29 at 03 34 24" src="https://user-images.githubusercontent.com/624974/151639253-fd5c964e-a356-4bcd-ad49-4b0950cd4bf0.png">
