@@ -18,7 +18,7 @@ struct PERElementInspectorRow: Hashable {
         .init(title: title, value: value)
     }
     
-    static func group(_ title: String, children: [Self]) -> Self {
+    static func group(_ title: String, children: [Self]) -> Self? {
         let children = children.compactMap { child -> Self? in
             if child.value.isEmpty { return nil }
             
@@ -26,6 +26,8 @@ struct PERElementInspectorRow: Hashable {
             child.isChild = true
             return child
         }
+        
+        if children.isEmpty { return nil }
         
         var row = Self(title: title, value: "")
         row.children = children

@@ -26,7 +26,7 @@ public class PERElementInspectorViewController: PERViewController {
     }
     
     private func renderElement() {
-        let rows: [PERElementInspectorRow] = [
+        let allRows: [PERElementInspectorRow?] = [
             .regular("Turkce Isim:", value: element.nameTr),
             .regular("Ingilizce Isim:", value: element.nameEn),
             .regular("Sembol:", value: element.symbol),
@@ -215,6 +215,7 @@ public class PERElementInspectorViewController: PERViewController {
         
         #warning("FIXME: Isotopes are missing")
         
+        let rows = allRows.compactMap { $0 }
         listViewController.rows = rows
         headerViewController.element = element
     }
